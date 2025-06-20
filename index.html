@@ -1,13 +1,133 @@
-<html>
-  <head>
-    My personal website
-  </head>
-  <h1>Charles B. Marsh</h1>
-  <h2>Contacts Me:</h2>
-  <p>Phone: <a href=”tel://+16196551808”>(619)-655-1808</a></p>
-  <p>Email: <a href="mailto:marshdrummer100@gmail.com">marshdrummer100@gmail.com</a></p>
-  <h2>Math Tutoring:</h2>
-  <p>If you are interested in Math tutoring for Calculus or Precalculus please contact me :)</p>
-  <p>In high school I took AP Calculus AB my senior year and failed the first test of the semester. I went on to study very hard and work many hours to get an A in the class, as well as a 5 on the AP test. I believe this is important, because my math tutors were naturally gifted in Calculus, and didn't go through the same struggle that many students have to overcome.</p>
-  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#" class="logo">Your Name</a>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero" class="hero-section">
+        <div class="container">
+            <img src="images/your-profile-photo.jpg" alt="Your Profile Photo" class="profile-photo">
+            <h1>Hi, I'm Your Name</h1>
+            <p>A passionate [Your Role, e.g., Software Developer] focused on [Your Niche/Interest, e.g., building scalable web applications].</p>
+            <a href="#projects" class="btn">View My Work</a>
+            </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>Write a compelling paragraph or two about your background, what motivates you, your career goals, and what kind of problems you love to solve. This is where you can let your personality shine a bit!</p>
+            <p>For example: "I thrive on transforming complex ideas into elegant, user-friendly solutions. My journey into programming began with a fascination for how technology can streamline everyday processes, leading me to specialize in [e.g., front-end development, data science]. I am constantly learning and adapting to new technologies, always seeking to build impactful and efficient applications."</p>
+        </div>
+    </section>
+
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <h2>My Projects</h2>
+            <div class="project-grid">
+                <div class="project-item">
+                    <img src="images/project1-thumbnail.png" alt="Project 1 Thumbnail">
+                    <h3>Project Title One</h3>
+                    <p class="project-description">A brief, compelling description of Project One. What problem did it solve? What was its main feature?</p>
+                    <p class="project-tech"><strong>Technologies:</strong> HTML, CSS, JavaScript, React</p>
+                    <div class="project-links">
+                        <a href="https://your-project1-live-demo.com" target="_blank" class="btn btn-small">Live Demo</a>
+                        <a href="https://github.com/yourusername/project1-repo" target="_blank" class="btn btn-small">GitHub Repo</a>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <img src="images/project2-thumbnail.png" alt="Project 2 Thumbnail">
+                    <h3>Project Title Two</h3>
+                    <p class="project-description">A brief, compelling description of Project Two.</p>
+                    <p class="project-tech"><strong>Technologies:</strong> Python, Django, PostgreSQL</p>
+                    <div class="project-links">
+                        <a href="https://your-project2-live-demo.com" target="_blank" class="btn btn-small">Live Demo</a>
+                        <a href="https://github.com/yourusername/project2-repo" target="_blank" class="btn btn-small">GitHub Repo</a>
+                    </div>
+                </div>
+
+                </div>
+        </div>
+    </section>
+
+    <section id="skills" class="skills-section">
+        <div class="container">
+            <h2>My Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Languages</h3>
+                    <ul>
+                        <li>JavaScript</li>
+                        <li>Python</li>
+                        <li>HTML5</li>
+                        <li>CSS3</li>
+                        <li>SQL</li>
+                        </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Frameworks & Libraries</h3>
+                    <ul>
+                        <li>React</li>
+                        <li>Node.js</li>
+                        <li>Express.js</li>
+                        <li>Django</li>
+                        <li>Flask</li>
+                        <li>Bootstrap</li>
+                        </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools & Platforms</h3>
+                    <ul>
+                        <li>Git & GitHub</li>
+                        <li>VS Code</li>
+                        <li>Docker</li>
+                        <li>AWS (S3, EC2)</li>
+                        <li>Figma</li>
+                        </ul>
+                </div>
+                </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2>Get in Touch</h2>
+            <p>I'm always open to new opportunities and collaborations. Feel free to reach out!</p>
+            <div class="contact-info">
+                <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+                <p>LinkedIn: <a href="https://linkedin.com/in/yourprofile" target="_blank">linkedin.com/in/yourprofile</a></p>
+                <p>GitHub: <a href="https://github.com/yourusername" target="_blank">github.com/yourusername</a></p>
+                </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="current-year"></span> Your Name. All rights reserved.</p>
+            </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
 </html>
