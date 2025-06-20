@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Full-Stack Developer</title>
+    <title>Charles Marsh - Computer Engineering Student @ Cal Poly Slo</title>
     <meta name="description" content="Personal website showcasing projects and blog posts by a full-stack developer specializing in React, Next.js, and TypeScript.">
     <style>
         /* Tailwind CSS Reset and Base Styles */
@@ -60,7 +60,7 @@
         }
 
         .dark {
-            --background: 0 0% 3.9%;
+            --background: 0 0% 6.9%;
             --foreground: 0 0% 98%;
             --muted: 0 0% 14.9%;
             --muted-foreground: 0 0% 63.9%;
@@ -101,7 +101,10 @@
         /* Grid */
         .grid { display: grid; }
         .grid-cols-1 { grid-template-columns: repeat(1, minmax(0, 1fr)); }
-        @media (min-width: 768px) { .md\\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+        @media (min-width: 768px) { 
+            .md\\:grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .md\\:grid { display: grid; }
+        }
         @media (min-width: 1024px) { .lg\\:grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
 
         /* Spacing */
@@ -118,10 +121,12 @@
         .mr-2 { margin-right: 0.5rem; }
         .ml-2 { margin-left: 0.5rem; }
         .mt-8 { margin-top: 2rem; }
+        @media (min-width: 768px) { .md\\:mt-0 { margin-top: 0; } }
         .gap-2 { gap: 0.5rem; }
         .gap-3 { gap: 0.75rem; }
         .gap-4 { gap: 1rem; }
         .gap-6 { gap: 1.5rem; }
+        @media (min-width: 768px) { .md\\:gap-8 { gap: 2rem; } }
         .space-x-3 > :not([hidden]) ~ :not([hidden]) { margin-left: 0.75rem; }
         .space-x-4 > :not([hidden]) ~ :not([hidden]) { margin-left: 1rem; }
 
@@ -143,10 +148,23 @@
         .w-full { width: 100%; }
         .max-w-3xl { max-width: 48rem; }
         .max-w-2xl { max-width: 42rem; }
+        .max-w-6xl { max-width: 72rem; }
         .h-4 { height: 1rem; }
         .w-4 { width: 1rem; }
         .h-5 { height: 1.25rem; }
         .w-5 { width: 1.25rem; }
+        .w-10 { width: 2.5rem; }
+        .h-10 { height: 2.5rem; }
+        .w-12 { width: 3rem; }
+        .h-12 { height: 3rem; }
+        .w-16 { width: 4rem; }
+        .h-16 { height: 4rem; }
+        .w-20 { width: 5rem; }
+        .h-20 { height: 5rem; }
+        .w-40 { width: 10rem; }
+        .h-40 { height: 10rem; }
+        .w-48 { width: 12rem; }
+        .h-48 { height: 12rem; }
 
         /* Positioning */
         .relative { position: relative; }
@@ -266,58 +284,118 @@
             color: hsl(var(--foreground));
             transition: background-color 0.3s, color 0.3s;
         }
+
+        /* Custom hero layout improvements */
+        .hero-grid {
+            display: block;
+        }
+        
+        @media (min-width: 768px) {
+            .hero-grid {
+                display: grid;
+                grid-template-columns: 1fr auto;
+                gap: 2rem;
+                align-items: center;
+                max-width: 72rem;
+            }
+        }
+
+        .hero-content {
+            order: 1;
+        }
+
+        .hero-image {
+            order: 2;
+            display: flex;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        @media (min-width: 768px) {
+            .hero-image {
+                justify-content: flex-end;
+                margin-top: 0;
+            }
+        }
+
+        .profile-img {
+            width: 10rem;
+            height: 10rem;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -2px rgb(0 0 0 / 0.05);
+            border: 1px solid hsl(var(--border));
+        }
+
+        @media (min-width: 768px) {
+            .profile-img {
+                width: 12rem;
+                height: 12rem;
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Nav Bar -->
+    <nav class="container flex items-center justify-between py-8">
+        <a href="/" class="text-2xl font-bold text-foreground" style="text-decoration: none; background: none; border: none; cursor: pointer;">
+            Charles Marsh
+        </a>
+        <button id="theme-toggle" class="btn btn-ghost btn-icon">
+            <svg id="sun-icon" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+            <svg id="moon-icon" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+        </button>
+    </nav>
+    
     <div class="min-h-screen bg-background">
         <!-- Hero Section -->
-        <section class="container py-16 md:py-24">
-            <div class="flex justify-end mb-8">
-                <button id="theme-toggle" class="btn btn-ghost btn-icon">
-                    <svg id="sun-icon" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                    </svg>
-                    <svg id="moon-icon" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" style="display: none;">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
-                    </svg>
-                </button>
-            </div>
-            <div class="max-w-3xl">
-                <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                    Hi, I'm a <span class="text-muted-foreground">Full-Stack Developer</span>
-                </h1>
-                <p class="text-xl text-muted-foreground mb-8 leading-relaxed">
-                    I build modern web applications with a focus on user experience, performance, and clean code. Currently
-                    working with React, Next.js, and TypeScript.
-                </p>
-                <div class="flex items-center space-x-4">
-                    <a href="#projects" class="btn btn-primary">
-                        View My Work
-                        <svg class="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17l9.2-9.2M17 17V7H7" />
-                        </svg>
-                    </a>
-                    <div class="flex items-center space-x-3">
-                        <a href="https://github.com" target="_blank" class="btn btn-ghost btn-icon">
-                            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+        <section class="container py-0 md:py-24">
+            <div class="hero-grid">
+                <div class="hero-content max-w-3xl">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                        Hi, you can call me <span class="text-muted-foreground">Charlie</span>
+                    </h1>
+                    <p class="text-xl text-muted-foreground mb-4 leading-relaxed">
+                        I build modern web applications with a focus on user experience, performance, and clean code. Currently
+                        working with React, Next.js, and TypeScript.
+                    </p>
+                    <div class="flex items-center space-x-4">
+                        <a href="#projects" class="btn btn-primary">
+                            View My Work
+                            <svg class="ml-2 h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17l9.2-9.2M17 17V7H7" />
                             </svg>
                         </a>
-                        <a href="https://linkedin.com" target="_blank" class="btn btn-ghost btn-icon">
-                            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                            </svg>
-                        </a>
-                        <a href="https://twitter.com" target="_blank" class="btn btn-ghost btn-icon">
-                            <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
-                            </svg>
-                        </a>
+                        <div class="flex items-center space-x-3">
+                            <a href="https://github.com" target="_blank" class="btn btn-ghost btn-icon">
+                                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                            </a>
+                            <a href="https://linkedin.com" target="_blank" class="btn btn-ghost btn-icon">
+                                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                                </svg>
+                            </a>
+                            <a href="https://twitter.com" target="_blank" class="btn btn-ghost btn-icon">
+                                <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                                </svg>
+                            </a>
+                        </div>
                     </div>
+                </div>
+                <div class="hero-image">
+                    <img src="profile_picture_zoomed.png" alt="Charles Marsh headshot" class="profile-img" />
                 </div>
             </div>
         </section>
 
+        <!-- Rest of your sections remain the same -->
         <!-- Projects Section -->
         <section id="projects" class="container py-16">
             <div class="mb-12">
@@ -430,7 +508,7 @@
                     <div class="card p-6 group hover:shadow-lg transition-shadow cursor-pointer">
                         <div class="flex items-center justify-between text-sm text-muted-foreground mb-2">
                             <span>Dec 5, 2024</span>
-                            <span>6 min read</span>
+                            <span>8 min read</span>
                         </div>
                         <h3 class="text-xl font-bold group-hover:text-primary transition-colors mb-3">Optimizing Performance in Next.js</h3>
                         <p class="text-base text-muted-foreground">Tips and techniques for improving performance in Next.js applications.</p>
@@ -488,7 +566,7 @@
         <!-- Footer -->
         <footer class="border-t py-8">
             <div class="container text-center text-muted-foreground">
-                <p>&copy; 2024 Your Name. All rights reserved.</p>
+                <p>&copy; 2024 Charles Marsh. All rights reserved.</p>
             </div>
         </footer>
     </div>
